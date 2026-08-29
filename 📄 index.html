@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sohel AI Studio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Hind Siliguri', sans-serif;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(124,58,237,.16), transparent 25%),
+                radial-gradient(circle at 80% 20%, rgba(59,130,246,.12), transparent 25%),
+                #060816;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .bangla {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        .glass {
+            background: rgba(15, 20, 40, .75);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,.08);
+        }
+
+        .poster-card {
+            background:
+                linear-gradient(135deg, rgba(18,23,48,.96), rgba(8,12,28,.96));
+            border: 1px solid rgba(139,92,246,.22);
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.45),
+                inset 0 1px 0 rgba(255,255,255,.04);
+        }
+
+        .neon-border {
+            box-shadow:
+                0 0 0 1px rgba(139,92,246,.18),
+                0 0 30px rgba(124,58,237,.10);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #ffffff, #c084fc, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .purple-text {
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tool-card {
+            transition: .35s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(168,85,247,.65);
+            box-shadow: 0 20px 45px rgba(76,29,149,.22);
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 999px;
+            background: rgba(124,58,237,.22);
+            filter: blur(100px);
+            pointer-events: none;
+        }
+
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .phone {
+            box-shadow:
+                0 0 0 10px #050711,
+                0 0 0 12px #30334a,
+                0 30px 80px rgba(0,0,0,.75);
+        }
+
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine::after {
+            content: "";
+            position: absolute;
+            top: -100%;
+            left: -80%;
+            width: 40%;
+            height: 300%;
+            background: rgba(255,255,255,.06);
+            transform: rotate(25deg);
+            transition: .7s;
+        }
+
+        .shine:hover::after {
+            left: 150%;
+        }
+
+        .feature-line {
+            border-bottom: 1px solid rgba(255,255,255,.07);
+        }
+
+        .pulse {
+            animation: pulseGlow 2.5s infinite ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 25px rgba(139,92,246,.2);
+            }
+
+            50% {
+                box-shadow: 0 0 55px rgba(139,92,246,.55);
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+<!-- ================= BACKGROUND ================= -->
+
+<div class="fixed inset-0 pointer-events-none grid-bg opacity-40"></div>
+
+<div class="fixed top-0 left-0 w-[500px] h-[500px] bg-purple-700/10 blur-[150px] rounded-full pointer-events-none"></div>
+
+<div class="fixed right-0 top-[300px] w-[400px] h-[400px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none"></div>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="relative z-50 border-b border-white/5 bg-[#070914]/80 backdrop-blur-xl">
+
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 py-4 flex items-center justify-between">
+
+        <!-- Logo -->
+
+        <div class="flex items-center gap-3">
+
+            <div class="w-12 h-12 rounded-2xl
+                        bg-gradient-to-br from-purple-600 via-indigo-600 to-pink-500
+                        flex items-center justify-center
+                        text-2xl shadow-xl shadow-purple-600/20">
+                S
+            </div>
+
+            <div>
+
+                <h1 class="text-lg lg:text-xl font-extrabold tracking-wide">
+                    Sohel <span class="text-purple-400">AI</span>
+                </h1>
+
+                <p class="text-[10px] tracking-[3px] text-purple-400 uppercase">
+                    Creative Studio
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Desktop Menu -->
+
+        <nav class="hidden md:flex items-center gap-2">
+
+            <a href="#home"
+               class="px-4 py-2 text-xs rounded-xl
+                      bg-purple-600/20 border border-purple-500/30
+                      text-purple-300">
+                Home
+            </a>
+
+            <a href="#tools"
+               class="px-4 py-2 text-xs rounded-xl text-gray-400 hover:text-white transition">
+                AI Tools
+            </a>
+
+            <a href="#projects"
+               class="px-4 py-2 text-xs rounded-xl text-gray-400 hover:text-white transition">
+                Projects
+            </a>
+
+        </nav>
+
+
+        <button class="px-5 py-2.5 rounded-xl text-xs font-bold
+                       bg-gradient-to-r from-purple-600 to-pink-600
+                       hover:scale-105 transition shadow-lg shadow-purple-900/30">
+
+            👑 Upgrade Pro
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HERO POSTER ================= -->
+
+<section id="home"
+         class="relative max-w-7xl mx-auto px-5 lg:px-8 py-10 lg:py-20 overflow-hidden">
+
+    <div class="hero-glow left-1/4 top-1/4"></div>
+
+
+    <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+
+
+        <!-- LEFT CONTENT -->
+
+        <div class="lg:col-span-3 space-y-5">
+
+
+            <div>
+
+                <div class="flex items-center gap-2 mb-4">
+
+                    <span class="w-3 h-3 rounded-full bg-purple-500 animate-pulse"></span>
+
+                    <span class="text-xs tracking-[4px] uppercase text-purple-400">
+                        AI Photo & Video Creation Studio
+                    </span>
+
+                </div>
+
+
+                <h2 class="text-4xl lg:text-6xl font-extrabold leading-[1.05]">
+
+                    One App,
+
+                    <br>
+
+                    <span class="purple-text">
+                        Unlimited
+                    </span>
+
+                    <br>
+
+                    Possibilities!
+
+                </h2>
+
+            </div>
+
+
+            <!-- Mini Categories -->
+
+            <div class="grid grid-cols-2 gap-3">
+
+                <div class="poster-card rounded-2xl p-4 shine">
+
+                    <div class="text-2xl mb-2">🎬</div>
+
+                    <p class="text-xs font-bold">
+                        AI Video
+                    </p>
+
+                </div>
+
+
+                <div class="poster-card rounded-2xl p-4 shine">
+
+                    <div class="text-2xl mb-2">🖼️</div>
+
+                    <p class="text-xs font-bold">
+                        AI Image
+                    </p>
+
+                </div>
+
+
+                <div class="poster-card rounded-2xl p-4 shine">
+
+                    <div class="text-2xl mb-2">✂️</div>
+
+                    <p class="text-xs font-bold">
+                        Editor
+                    </p>
+
+                </div>
+
+
+                <div class="poster-card rounded-2xl p-4 shine">
+
+                    <div class="text-2xl mb-2">▦</div>
+
+                    <p class="text-xs font-bold">
+                        All Tools
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- What You Can Do -->
+
+            <div class="poster-card rounded-3xl p-5 neon-border">
+
+                <h3 class="font-bold text-lg mb-4">
+                    What You Can Do
+                </h3>
+
+
+                <div class="space-y-3 text-xs text-gray-300">
+
+                    <div class="flex items-center gap-3">
+                        <span>🎬</span>
+                        AI Video Generator
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <span>🖼️</span>
+                        AI Image Generator
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <span>✂️</span>
+                        Video Editing
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <span>🎙️</span>
+                        AI Voiceover
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <span>🌐</span>
+                        Video Translator
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <span>💬</span>
+                        Auto Subtitles
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Pro Card -->
+
+            <div class="rounded-3xl p-[1px]
+                        bg-gradient-to-r from-purple-500 to-pink-500">
+
+                <div class="bg-[#111426] rounded-[23px] p-5">
+
+                    <div class="flex gap-3">
+
+                        <div class="text-3xl">
+                            👑
+                        </div>
+
+                        <div>
+
+                            <h3 class="font-bold">
+                                Go Pro
+                            </h3>
+
+                            <p class="text-xs text-gray-400">
+                                Unlimited Access
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="w-full mt-4 py-3 rounded-xl
+                                   bg-gradient-to-r from-purple-600 to-pink-600
+                                   text-sm font-bold">
+
+                        Upgrade Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CENTER PHONE -->
+
+        <div class="lg:col-span-6 flex justify-center">
+
+            <div class="relative">
+
+                <!-- AI Background -->
+
+                <div class="absolute inset-0 -z-10 bg-purple-600/30 blur-[100px] rounded-full"></div>
+
+
+                <!-- Phone -->
+
+                <div class="phone w-[310px] sm:w-[360px]
+                            rounded-[42px]
+                            bg-[#080b18]
+                            border border-gray-700
+                            p-3">
+
+
+                    <!-- Phone Top -->
+
+                    <div class="bg-[#10152a]
+                                rounded-[32px]
+                                min-h-[690px]
+                                p-5
+                                overflow-hidden">
+
+
+                        <div class="flex justify-between items-center text-xs text-gray-300">
+
+                            <span>9:41</span>
+
+                            <div class="flex gap-2">
+                                <span>📶</span>
+                                <span>◔</span>
+                                <span>🔋</span>
+                            </div>
+
+                        </div>
+
+
+                        <!-- Header -->
+
+                        <div class="flex justify-between items-center mt-5">
+
+                            <span class="text-xl">
+                                ☰
+                            </span>
+
+                            <button class="px-4 py-2 rounded-full
+                                           bg-purple-600/10
+                                           border border-purple-500/20
+                                           text-xs">
+
+                                👑 Pro
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="mt-5">
+
+                            <h3 class="text-xl font-bold">
+                                Hello, Creator! 👋
+                            </h3>
+
+                            <p class="text-xs text-gray-400 mt-1">
+                                What will you create today?
+                            </p>
+
+                        </div>
+
+
+                        <!-- Main AI Video Card -->
+
+                        <div class="mt-5 rounded-3xl overflow-hidden
+                                    border border-purple-500/30
+                                    bg-gradient-to-br
+                                    from-purple-900/70
+                                    via-[#171339]
+                                    to-[#07111f]
+                                    p-5
+                                    relative">
+
+                            <div class="absolute w-48 h-48
+                                        rounded-full border-[2px]
+                                        border-purple-400/60
+                                        right-0 top-6 opacity-80">
+
+                            </div>
+
+
+                            <div class="relative z-10">
+
+                                <p class="text-purple-300 text-sm font-bold">
+                                    AI Video
+                                </p>
+
+                                <h3 class="text-2xl font-bold">
+                                    Generator
+                                </h3>
+
+                                <p class="text-xs text-gray-300 mt-3 max-w-[170px]">
+                                    Turn your ideas into stunning AI videos.
+                                </p>
+
+
+                                <button class="mt-5
+                                               bg-gradient-to-r
+                                               from-indigo-600 to-purple-600
+                                               px-5 py-3
+                                               rounded-xl
+                                               text-xs font-bold">
+
+                                    ✨ Create Video
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Two Cards -->
+
+                        <div class="grid grid-cols-2 gap-3 mt-4">
+
+                            <div class="rounded-2xl p-4
+                                        bg-gradient-to-br
+                                        from-cyan-900/50 to-[#11182a]
+                                        border border-cyan-500/20">
+
+                                <div class="text-lg mb-2">
+                                    🤖
+                                </div>
+
+                                <h4 class="font-bold text-xs">
+                                    AI Image
+                                </h4>
+
+                                <p class="text-[9px] text-gray-400 mt-1">
+                                    Create amazing visuals
+                                </p>
+
+                                <button class="mt-3 text-[10px]
+                                               px-3 py-2 rounded-lg
+                                               bg-cyan-500/20 text-cyan-300">
+
+                                    Create Image
+
+                                </button>
+
+                            </div>
+
+
+                            <div class="rounded-2xl p-4
+                                        bg-gradient-to-br
+                                        from-pink-900/50 to-[#171027]
+                                        border border-pink-500/20">
+
+                                <div class="text-lg mb-2">
+                                    🧑‍🎤
+                                </div>
+
+                                <h4 class="font-bold text-xs">
+                                    AI Avatars
+                                </h4>
+
+                                <p class="text-[9px] text-gray-400 mt-1">
+                                    Make talking avatars
+                                </p>
+
+                                <button class="mt-3 text-[10px]
+                                               px-3 py-2 rounded-lg
+                                               bg-pink-500/20 text-pink-300">
+
+                                    Create Avatar
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Quick Tools -->
+
+                        <div class="flex justify-between items-center mt-5">
+
+                            <h4 class="text-sm font-bold">
+                                Quick Tools
+                            </h4>
+
+                            <span class="text-xs text-purple-400">
+                                View All ›
+                            </span>
+
+                        </div>
+
+
+                        <div class="grid grid-cols-4 gap-2 mt-3">
+
+                            <div class="bg-[#161c32] rounded-xl p-3 text-center">
+                                <div>✂️</div>
+                                <p class="text-[8px] mt-2">Editor</p>
+                            </div>
+
+                            <div class="bg-[#161c32] rounded-xl p-3 text-center">
+                                <div>🖼️</div>
+                                <p class="text-[8px] mt-2">Photo</p>
+                            </div>
+
+                            <div class="bg-[#161c32] rounded-xl p-3 text-center">
+                                <div>CC</div>
+                                <p class="text-[8px] mt-2">Captions</p>
+                            </div>
+
+                            <div class="bg-[#161c32] rounded-xl p-3 text-center">
+                                <div>🎙️</div>
+                                <p class="text-[8px] mt-2">Voice</p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- Projects -->
+
+                        <div class="flex justify-between mt-5">
+
+                            <h4 class="text-sm font-bold">
+                                My Projects
+                            </h4>
+
+                            <span class="text-xs text-purple-400">
+                                View All
+                            </span>
+
+                        </div>
+
+
+                        <div class="grid grid-cols-4 gap-2 mt-3">
+
+                            <div class="h-20 rounded-xl bg-gradient-to-br from-blue-600/50 to-purple-600/20"></div>
+
+                            <div class="h-20 rounded-xl bg-gradient-to-br from-pink-600/50 to-purple-600/20"></div>
+
+                            <div class="h-20 rounded-xl bg-gradient-to-br from-orange-500/50 to-red-600/20"></div>
+
+                            <div class="h-20 rounded-xl bg-gradient-to-br from-cyan-500/50 to-blue-600/20"></div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT FEATURES -->
+
+        <div class="lg:col-span-3 space-y-4">
+
+
+            <div class="poster-card rounded-2xl p-4 flex gap-4 items-center">
+
+                <div class="w-12 h-12 rounded-xl
+                            bg-purple-500/15
+                            flex items-cent
